@@ -54,3 +54,11 @@ jupyter-notebook --no-browser --ip=0.0.0.0 --port=8889
 
 Copy the `http://127.0.0.1:8889/tree?...` URL from the output and paste it into your **browser**.
 
+## 5. Submit job using slurm script.
+
+We can simply submit job directly to the cluster, without using jupyter-notebook.
+
+```bash
+sbatch qaoa.job
+```
+One can change number of layers, graphs in maxcut.py script. `qaoa.job` is the job submission script. Finally, checkout result in slurm output (cq_....out).
