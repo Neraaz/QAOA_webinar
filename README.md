@@ -6,15 +6,23 @@
 /ocean/containers/cuda-quantum.sif
 ```
 
-## 2. Setup Interactive Session. Here we have requested one v100-32 gpu from GPU-shared partition. 
+## 2. Setup Interactive Session. 
+
+Here we have requested one v100-32 gpu from GPU-shared partition. 
 
 ```bash
 interact -p GPU-shared -t 120:00 -N 1 --gres=gpu:v100-32:1
 ```
 
+Similarly, interactive session for CPU (RM partition).
+
+```bash
+interact -p RM -t 120:00 -N 1
+```
+
 ## 3. After Node is Granted
 
-Once your **v node (v0xx)** (for example: v015) is allocated, use the following commands from your **local computer terminal**.
+Once your **compute node (v0xx)** (for example: v015) is allocated, use the following commands from your **local computer terminal**.
 
 ### 3.1 Check if Port 8889 is in Use
 
@@ -44,8 +52,16 @@ This links the allocated `v0xx (for example: v015)` node to your local machine.
 
 From the **first terminal** where the interactive session is running. `--nv` flag for NVIDIA GPU, remove flag for CPU only simulation:
 
+For GPU usage:
+
 ```bash
 apptainer shell --cleanenv --no-home --nv /ocean/containers/cuda-quantum.sif
+```
+
+For CPU only usage:
+
+```bash
+apptainer shell --cleanenv --no-home /ocean/containers/cuda-quantum.sif
 ```
 
 ```bash
@@ -54,7 +70,16 @@ jupyter-notebook --no-browser --ip=0.0.0.0 --port=8889
 
 Copy the `http://127.0.0.1:8889/tree?...` URL from the output and paste it into your **browser**.
 
-## 5. Submit job using slurm script.
+## 5. Jupyter notebook
+
+Open ```QAOA_MaxCut_CUDAq.ipynb``` notebook and execute shells. While using CPU or GPU, adjust backend target, accordingly.
+
+```python
+cudaq.set_target("nvidia") #single-GPU
+cudaq.set_target("qpp-cpu") #CPU only, uses Q++ library for OpenMP parallelization
+```
+
+## 6. Submit job using slurm script.
 
 We can simply submit job directly to the cluster, without using jupyter-notebook.
 
@@ -62,3 +87,5 @@ We can simply submit job directly to the cluster, without using jupyter-notebook
 sbatch qaoa.job
 ```
 One can change number of layers, graphs in maxcut.py script. `qaoa.job` is the job submission script. Finally, checkout result in slurm output (cq_....out).
+
+## 7. Experiment with different layers, different graphs, and different backends.
