@@ -64,6 +64,8 @@ For CPU only usage:
 apptainer shell --cleanenv --no-home /ocean/containers/cuda-quantum.sif
 ```
 
+Starts a Jupyter Notebook on a remote machine without opening a browser, listening on `0.0.0.0:8889` so you can access it locally via SSH port forwarding.
+
 ```bash
 jupyter-notebook --no-browser --ip=0.0.0.0 --port=8889
 ```
