@@ -4,6 +4,7 @@ from cudaq import spin
 from typing import List
 import networkx as nx
 import matplotlib.pyplot as plt
+import time
 
 # =============================
 # 1. Global settings
@@ -77,6 +78,7 @@ def objective(parameters):
 # =============================
 # 7. Classical Optimization
 # =============================
+begin = time.time()
 optimizer = cudaq.optimizers.COBYLA()
 optimizer.initial_parameters = np.random.uniform(-1,1,parameter_count)
 
@@ -84,10 +86,12 @@ opt_val, opt_params = optimizer.optimize(
     dimensions=parameter_count,
     function=objective
 )
+end = time.time()
 
 print("Optimal expectation:", opt_val)
 print("Estimated MaxCut:", -opt_val)
 print("Optimal parameters:", opt_params)
+print("Time:", end-begin)
 
 # =============================
 # 8. Sampling optimal circuit

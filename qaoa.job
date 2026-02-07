@@ -7,4 +7,4 @@
 #SBATCH --output=cq_%j.out      # Standard output file
 
 
-time -p apptainer exec --cleanenv --nv --no-home /ocean/containers/cuda-quantum.sif python3 maxcut.py
+apptainer exec --cleanenv --nv --no-home /ocean/containers/cuda-quantum.sif python3 maxcut.py
