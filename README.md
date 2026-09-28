@@ -91,3 +91,13 @@ sbatch qaoa.job
 One can change number of layers, graphs in maxcut.py script. `qaoa.job` is the job submission script. Finally, checkout result in slurm output (cq_....out).
 
 ## 7. Experiment with different layers, different graphs, and different backends.
+
+
+### Running the tutorial on Bridges-2 OnDemand (optional)
+
+You can also run this tutorial in a Jupyter Notebook through Bridges-2 OnDemand:
+
+1. Start an interactive Jupyter Notebook session in OnDemand by following the steps in the [Bridges-2 User Guide](https://www.psc.edu/resources/bridges-2/user-guide#jupyter-hub).
+2. When the session starts, open the tutorial notebook from the OnDemand Jupyter interface.
+3. If this is your first time, run the first few cells of the notebook with the default **Python 3** kernel. They create the CUDA-Q Jupyter kernels from the container (`cuda-quantum.sif`). You only need to do this once. Then refresh the browser page so Jupyter picks up the new kernels.
+4. Go to **Kernel → Change Kernel** and select **Python (CUDA-Q CPU)** or **Python (CUDA-Q GPU)**. Use the GPU kernel only in a session on a GPU partition.
