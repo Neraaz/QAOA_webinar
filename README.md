@@ -55,13 +55,13 @@ From the **first terminal** where the interactive session is running. `--nv` fla
 For GPU usage:
 
 ```bash
-apptainer shell --cleanenv --no-home --nv /ocean/containers/cuda-quantum.sif
+apptainer shell --cleanenv --no-home --nv /ocean/containers/quantum/cuda-quantum_latest.sif
 ```
 
 For CPU only usage:
 
 ```bash
-apptainer shell --cleanenv --no-home /ocean/containers/cuda-quantum.sif
+apptainer shell --cleanenv --no-home /ocean/containers/quantum/cuda-quantum_latest.sif
 ```
 
 Starts a Jupyter Notebook on a remote machine without opening a browser, listening on `0.0.0.0:8889` so you can access it locally via SSH port forwarding.
