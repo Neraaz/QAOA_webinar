@@ -3,7 +3,7 @@
 ## 1. Container Path
 
 ```bash
-/ocean/containers/cuda-quantum.sif
+/ocean/containers/quantum/cuda-quantum_latest.sif
 ```
 
 ## 2. Setup Interactive Session. 
@@ -99,5 +99,5 @@ You can also run this tutorial in a Jupyter Notebook through Bridges-2 OnDemand:
 
 1. Start an interactive Jupyter Notebook session in OnDemand by following the steps in the [Bridges-2 User Guide](https://www.psc.edu/resources/bridges-2/user-guide#jupyter-hub).
 2. When the session starts, open the tutorial notebook from the OnDemand Jupyter interface.
-3. If this is your first time, run the first few cells of the notebook with the default **Python 3** kernel. They create the CUDA-Q Jupyter kernels from the container (`cuda-quantum.sif`). You only need to do this once. Then refresh the browser page so Jupyter picks up the new kernels.
+3. If this is your first time, run the first few cells of the notebook with the default **Python 3** kernel. They create the CUDA-Q Jupyter kernels from the container (`cuda-quantum_latest.sif`). You only need to do this once. Then refresh the browser page so Jupyter picks up the new kernels.
 4. Go to **Kernel → Change Kernel** and select **Python (CUDA-Q CPU)** or **Python (CUDA-Q GPU)**. Use the GPU kernel only in a session on a GPU partition.
